@@ -5,6 +5,7 @@ const product = {
     unit: "",
     rating: "",
     thumbnail: "",
+    details: "",
     images: [
         ""
     ],
@@ -13,14 +14,25 @@ const product = {
     quantity: "",
     reviews: [
         review
-    ]
+    ],
+    lastAdded: "",
+    shop: {
+        shop
+    },
+    type: "",
+    deliveryPrice: "",
+    complaints: []
 }
 
 const shop = {
     _id: "mongoid",
     name: "VK Snacks",
     address: "Main Market, Talwara",
-    owner: "Er Shaifi",
+    owner: {
+        name: "",
+        pic: "",
+        phone: ""
+    },
     category: "Snacks",
     thumbnail: "imgUrl",
     gallery: [
@@ -34,12 +46,10 @@ const shop = {
         latitude: "30",
         longitude: "40"
     },
-    products: [
-        {
-            product
-        }
-    ],
+    defaultDeliveryPrice: "",
     dateAdded: new Date(),
+    verified: true,
+    reviews: []
 }
 
 const user = {
