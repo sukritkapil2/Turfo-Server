@@ -40,7 +40,7 @@ const shop = {
         "img2",
         "img3"
     ],
-    phone: "9417464709",
+    shopPhone: "9417464709",
     rating: "5",
     location: {
         latitude: "30",
@@ -56,14 +56,11 @@ const user = {
     name: "Sukrit",
     email: "sukrit.kapil2@gmail.com",
     password: "hkerulajelncp83ur78OBE78BXE7Q8WEX78XN",
+    seller: false,
+    createdOn: "",
     shopsNearby: [
         {
             shop
         }
     ]
-}
-
-module.exports = {
-    shop,
-    user
 }

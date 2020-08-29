@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
 
 const userRoute = require("./api/routes/user");
+const shopRoute = require("./api/routes/shop");
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -41,6 +42,7 @@ mongoose.connect(
 
 //Route Handling
 app.use("/user", userRoute);
+app.use("/shops", shopRoute);
 
 //Handle Error
 app.use((req, res, next) => {
