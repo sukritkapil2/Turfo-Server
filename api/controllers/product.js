@@ -3,6 +3,29 @@ const mongoose = require("mongoose");
 const Category = require('../models/Category');
 const Product = require('../models/Product');
 
+exports.get_trending = (req, res, next) => {
+    const city = req.query.city;
+
+    if (city == null || city == undefined) {
+        return res.status(400).json({
+            message: "Please Send City and Category"
+        })
+    }
+
+    Product.find({ city: city })
+        .sort({ purchases: -1 })
+        .limit(8)
+        .exec()
+        .then((products) => {
+            res.status(200).json(products);
+        })
+        .catch((err) => {
+            res.status(500).json({
+                err: err
+            })
+        })
+}
+
 exports.get_categories = (req, res, next) => {
     Category.find({})
         .exec()

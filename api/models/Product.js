@@ -59,6 +59,10 @@ const productSchema = mongoose.Schema({
     city: {
         type: String,
         required: true
+    },
+    purchases: {
+        type: Number,
+        default: 0
     }
 });
 
