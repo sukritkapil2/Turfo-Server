@@ -4,6 +4,31 @@ const jwt = require("jsonwebtoken");
 
 const User = require("../models/User");
 
+exports.get_user = (req, res, next) => {
+    const id = req.params.userId;
+    User.findById(id)
+        .exec()
+        .then((user) => {
+            if (user) {
+                const returnUser = {
+                    seller: user.seller,
+                    name: user.name,
+                    email: user.email
+                };
+                res.status(200).json(returnUser)
+            } else {
+                res.status(404).json({
+                    message: "No user found with this id"
+                })
+            }
+        })
+        .catch((err) => {
+            res.status(500).json({
+                err: err
+            })
+        })
+}
+
 exports.register_user = (req, res, next) => {
     User.find({ email: req.body.email })
         .exec()
@@ -72,10 +97,11 @@ exports.login_user = (req, res, next) => {
                             },
                             process.env.JWT_KEY,
                             {
-                                expiresIn: "10h"
+                                expiresIn: "30d"
                             }
                         );
                         return res.status(200).json({
+                            id: user[0]._id,
                             message: "Auth Successful",
                             token: token
                         })

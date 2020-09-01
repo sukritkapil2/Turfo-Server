@@ -19,17 +19,6 @@ const ownerSchema = {
     }
 }
 
-const locationSchema = {
-    latitude: {
-        type: Number,
-        required: true
-    },
-    longitude: {
-        type: Number,
-        required: true
-    }
-}
-
 const shopSchema = mongoose.Schema({
     name: {
         type: String,
@@ -62,10 +51,6 @@ const shopSchema = mongoose.Schema({
         type: Number,
         required: true
     },
-    location: {
-        type: locationSchema,
-        required: true
-    },
     defaultDeliveryPrice: {
         type: Number,
         required: true
@@ -78,6 +63,13 @@ const shopSchema = mongoose.Schema({
         type: Boolean,
         default: false,
     },
+    city: {
+        type: String,
+        required: true
+    },
+    products: [{
+        type: String
+    }],
     reviews: [{
         name: {
             type: String,

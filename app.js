@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 
 const userRoute = require("./api/routes/user");
 const shopRoute = require("./api/routes/shop");
+const productRoute = require("./api/routes/product")
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -43,6 +44,7 @@ mongoose.connect(
 //Route Handling
 app.use("/user", userRoute);
 app.use("/shops", shopRoute);
+app.use("/products", productRoute);
 
 //Handle Error
 app.use((req, res, next) => {

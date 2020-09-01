@@ -1,5 +1,6 @@
 //Model Structure
 const product = {
+    id: "",
     name: "",
     price: "",
     unit: "",
@@ -16,10 +17,8 @@ const product = {
         review
     ],
     lastAdded: "",
-    shop: {
-        shop
-    },
-    type: "",
+    shopId: "",
+    category: "",
     deliveryPrice: "",
     complaints: []
 }
